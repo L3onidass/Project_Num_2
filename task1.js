@@ -75,21 +75,20 @@ const addCountry = function (country, countries) {
 
 const removeCountry = function (country, countries) {
   for (let index = 0; index < countries.length; index++) {
-    if (countries[index] !== country) {
-      console.log(`Zadaná krajina ${country} se nenachází v seznamu krajin`);
-      break;
-    } else if (country === "" || typeof country !== "string") {
-      console.log(`Zadali jste neplatný dotaz: ${country}`);
-      break;
-    } else if (countries.includes(country) === true) {
+    if (countries.includes(country) === true) {
       countries.splice(countries.indexOf(country), 1);
-
       console.log(
         `Zadaná krajina ${country} byla odstraněná se seznamu krajin na indexu  ${countries.indexOf(
           country
         )}. Aktuální počet krajin v seznamu je ${countries.length}`
       );
       console.log(countries);
+      break;
+    } else if (country === "" || typeof country !== "string") {
+      console.log(`Zadali jste neplatný dotaz: ${country}`);
+      break;
+    } else {
+      console.log(`Zadaná krajina ${country} se nenachází v seznamu krajin`);
       break;
     }
   }
