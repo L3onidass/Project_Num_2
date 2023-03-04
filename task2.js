@@ -12,3 +12,20 @@ const countriesPopulation = [
 ];
 
 const populationTotal = 8000000000;
+
+const popPercentage = function (population, populationTotal) {
+  let cal = (population / populationTotal) * 100;
+  return cal.toFixed(2);
+};
+
+const copyCountries = countriesPopulation.slice();
+copyCountries.sort(function (x, y) {
+  return x.population - y.population;
+});
+
+copyCountries.forEach(function (item, index) {
+  item.id = item.country.substring(0, 3) + index;
+  item.percentage = popPercentage(item.population, populationTotal);
+});
+
+console.log(copyCountries);
