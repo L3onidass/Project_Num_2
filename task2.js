@@ -29,3 +29,13 @@ copyCountries.forEach(function (item, index) {
 });
 
 console.log(copyCountries);
+
+const filteredCountries = copyCountries.filter(
+  (item) =>
+    item.country.length > 4 &&
+    item.country.length <= 8 &&
+    item.percentage > 1.5 &&
+    item.percentage < 10
+);
+
+console.log(filteredCountries);
