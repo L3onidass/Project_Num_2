@@ -24,74 +24,61 @@ const countries = [
 
 // *****First part - Check function*****
 
-const checkCountry = function (country, countries) {
-  for (let index = 0; index < countries.length; index++) {
-    if (countries[index] === country) {
-      console.log(
-        `Zadaná krajina ${country} se nachází v seznamu krajin na indexe ${countries.indexOf(
-          country
-        )}.`
-      );
-      break;
-    } else if (country == "" || typeof country !== "string") {
-      console.log(`Zadali jste neplatný dotaz: ${country}.`);
-      break;
-    } else if (countries.includes(country) === false) {
-      console.log(`Zadaná krajina ${country} se nenachází v seznamu krajin.`);
-      break;
-    }
+let checkCountry = function (country, countries) {
+  if (country == "" || typeof country !== "string") {
+    console.log(`Zadali jste neplatný dotaz: ${country}.`);
+  } else if (countries.indexOf(country) !== -1) {
+    console.log(
+      `Zadaná krajina ${country} se nachází v seznamu krajin na indexe ${countries.indexOf(
+        country
+      )}.`
+    );
+  } else {
+    console.log(`Zadaná krajina ${country} se nenachází v seznamu krajin.`);
   }
+
   return;
 };
 
 // *****Second part - Add function*****
 
-const addCountry = function (country, countries) {
-  for (let index = 0; index < countries.length; index++) {
-    if (countries[index] === country) {
-      console.log(
-        `Zadaná krajina ${country} se nachází v seznamu krajin na indexe ${countries.indexOf(
-          country
-        )}`
-      );
-      break;
-    } else if (country == "" || typeof country !== "string") {
-      console.log(`Zadali jste neplatný dotaz: ${country}`);
-      break;
-    } else if (countries.includes(country) === false) {
-      countries.push(country);
-      console.log(
-        `Zadaná krajina ${country} byla úspěšně přidaná do seznamu krajin na indexu ${countries.indexOf(
-          country
-        )}. Celkový počet krajin v seznamu je ${countries.length}`
-      );
-      break;
-    }
+let addCountry = function (country, countries) {
+  if (country == "" || typeof country !== "string") {
+    console.log(`Zadali jste neplatný dotaz: ${country}.`);
+  } else if (countries.indexOf(country) === -1) {
+    countries.push(country);
+    console.log(
+      `Zadaná krajina ${country} byla úspěšně přidaná do seznamu krajin na indexu ${countries.indexOf(
+        country
+      )}. Celkový počet krajin v seznamu je ${countries.length}`
+    );
+  } else {
+    console.log(
+      `Zadaná krajina ${country} se nachází v seznamu krajin na indexe ${countries.indexOf(
+        country
+      )}`
+    );
   }
+
   return;
 };
 
 // *****Third part - Remove function *****
 
-const removeCountry = function (country, countries) {
-  for (let index = 0; index < countries.length; index++) {
-    if (countries.includes(country) === true) {
-      countries.splice(countries.indexOf(country), 1);
-      console.log(
-        `Zadaná krajina ${country} byla odstraněná se seznamu krajin na indexu  ${countries.indexOf(
-          country
-        )}. Aktuální počet krajin v seznamu je ${countries.length}`
-      );
-      console.log(countries);
-      break;
-    } else if (country === "" || typeof country !== "string") {
-      console.log(`Zadali jste neplatný dotaz: ${country}`);
-      break;
-    } else {
-      console.log(`Zadaná krajina ${country} se nenachází v seznamu krajin`);
-      break;
-    }
+let removeCountry = function (country, countries) {
+  if (country == "" || typeof country !== "string") {
+    console.log(`Zadali jste neplatný dotaz: ${country}.`);
+  } else if (countries.indexOf(country) !== -1) {
+    countries.splice(countries.indexOf(country), 1);
+    console.log(
+      `Zadaná krajina ${country} byla odstraněná se seznamu krajin na indexu  ${countries.indexOf(
+        country
+      )}. Aktuální počet krajin v seznamu je ${countries.length}`
+    );
+  } else {
+    console.log(`Zadaná krajina ${country} se nenachází v seznamu krajin.`);
   }
+
   return;
 };
 
